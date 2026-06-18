@@ -1,0 +1,18 @@
+.container {
+    background-color: whitesmoke;
+    width: 900px;
+    height: 900px;
+    margin: 2vh auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.pixel {
+    background: green;
+}
+
+.reset-button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 2vh;
+}
