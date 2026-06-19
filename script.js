@@ -26,26 +26,34 @@ function createGrid(boxSize) {
 
 }
 
+function getValidGridSize (input) {
+    if (isNaN(input)) {
+            alert("Got something funky. Try again.")
+            return 0;
+        } else if (input >= 101) {
+            alert("grid size too high. Please enter a between 5 and 100")
+            return 0;
+        } else if (input <= 3) {
+            alert("grid size to small. please enter a between 5 and 100")
+            return 0;
+        } else if (input.includes(".") || input.includes("-")){
+            alert("dont try to be sneaky. Try again")
+            return 0;
+        } else {
+            return parseInt(input);  
+        }
+}
+
 createGrid(gridSize);
 
 let resetButton = document.querySelector(".reset-button");
 resetButton.addEventListener("click" , e => {
-    e.preventDefault();
     container.replaceChildren();
 
     setTimeout(() => {
         let gridSizeInput = prompt("please enter the grid size. For example: for a 16*16 grid, enter 16.");
-        let gridSize = parseInt(gridSizeInput);
-        if (isNaN(gridSize)) {
-            alert("Got something funky. Try again.")
-        } else if (gridSize >= 101) {
-            alert("grid size too high. Please enter a between 5 and 100")
-        } else if (gridSize <= 3) {
-            alert("grid size to small. please enter a between 5 and 100")
-        } else if (gridSizeInput.includes(".") || gridSizeInput.includes("-")){
-            alert("dont try to be sneaky. Try again")
-        } else {
-            createGrid(gridSize);     
-        }
+        let validInput = getValidGridSize(gridSizeInput);
+        createGrid(validInput);
+        
     }, 10);  
 })
