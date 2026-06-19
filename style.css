@@ -1,14 +1,11 @@
 .container {
     background-color: whitesmoke;
+    border: 0.1px solid black;
     width: 900px;
     height: 900px;
     margin: 2vh auto;
     display: flex;
     flex-wrap: wrap;
-}
-
-.pixel {
-    background: green;
 }
 
 .reset-button-container {
